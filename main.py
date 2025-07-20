@@ -77,8 +77,7 @@ def send_notification():
         logger.error(f"Unexpected error sending notification: {str(e)}")
         return jsonify({'error': f'Unexpected error: {str(e)}'}), 500
 
-# WSGI application object (required for Gunicorn)
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    logger.info(f"Starting Flask app on host 0.0.0.0 and port {port}")
+    port = int(os.environ.get('PORT', 8080))  # Default to 8080 to match Railway
+    logger.info(f"Starting Flask app on host 0.0.0.0 and port {port} (development mode)")
     app.run(host='0.0.0.0', port=port)
