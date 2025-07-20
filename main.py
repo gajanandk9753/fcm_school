@@ -24,7 +24,7 @@ try:
         logger.error("FIREBASE_CREDENTIALS_JSON is missing required fields.")
         raise ValueError("FIREBASE_CREDENTIALS_JSON is missing required fields.")
     cred = credentials.Certificate(cred_dict)
-    firebase_admin.initialize_app(cred, name='school-guardian')
+    firebase_admin.initialize_app(cred)
     logger.info("Firebase Admin SDK initialized successfully.")
 except Exception as e:
     logger.error(f"Failed to initialize Firebase Admin SDK: {str(e)}")
